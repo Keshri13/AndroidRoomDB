@@ -9,7 +9,7 @@ interface StudentDao {
     fun getAll():List<Student>
 
     @Query("SELECT * FROM student_table WHERE roll_no LIKE :roll LIMIT 1")
-    suspend fun findByRoll():Student
+    suspend fun findByRoll(roll:Int):Student
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(student: Student)
